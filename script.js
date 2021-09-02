@@ -5,14 +5,15 @@ const btnelement = document.getElementById('btn')
 const   timerelement = document.getElementById('timer')
 
 
-let correct = true
 quoteinputelement.addEventListener('input', () => {
     const arryquote = quotedisplayelement.querySelectorAll('span')
     const arrayvalue = quoteinputelement.value.split('')
+
+    let correct = true;
     arryquote.forEach((characterspan, index) => {
         const character = arrayvalue[index]
         if(character == null){
-            characterspan.classList.add('correct')
+            characterspan.classList.remove('correct')
             characterspan.classList.remove('incorrect')
             correct = false
         }
@@ -20,8 +21,9 @@ quoteinputelement.addEventListener('input', () => {
             characterspan.classList.add('correct')
             characterspan.classList.remove('incorrect')
         }else{
-            characterspan.classList.add('incorrect')
+           
             characterspan.classList.remove('correct')
+            characterspan.classList.add('incorrect')
             correct = false
         }
     })
